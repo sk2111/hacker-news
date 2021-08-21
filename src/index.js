@@ -8,7 +8,7 @@ import history from 'utilities/router/history';
 //components
 import App from 'pages/App/App';
 //styles 
-import 'stylesheets/global-styles.scss';
+import 'stylesheets/globalStyles.scss';
 
 
 ReactDOM.render(

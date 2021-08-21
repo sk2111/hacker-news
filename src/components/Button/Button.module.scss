@@ -1,0 +1,25 @@
+@import 'stylesheets/colorTheme.scss';
+
+.button {
+  background-color: $clr-app-primary;
+  border: none;
+  border-radius: 5px;
+  box-shadow: none;
+  color: $clr-app-primary-text;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 600;
+  height: 40px;
+  letter-spacing: 1px;
+  outline: none;
+  position: relative;
+  top: 0;
+  transition: top 0.1s;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 170px;
+}
+.button:active {
+  top: 2px;
+}
