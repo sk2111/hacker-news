@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import styles from './NewsStories.module.scss';
 //actions
 import { fetchAllStoriesStart } from 'redux/rootAction';
+import StoryList from 'components/StoryList/StoryList';
 
 const NewsStories = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,9 @@ const NewsStories = () => {
   return (
     <div className={styles.storyContainer}>
       <div className={styles.topSection}>top</div>
-      <div className={styles.bottomSection}>bottom</div>
+      <div className={styles.bottomSection}>
+        <StoryList />
+      </div>
     </div>
   );
 };
