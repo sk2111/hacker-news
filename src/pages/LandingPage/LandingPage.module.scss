@@ -31,3 +31,12 @@
 .titleContainer {
   text-align: center;
 }
+
+@media only screen and (max-width: 576px) {
+  .leftSection {
+    display: none;
+  }
+  .rightSection {
+    width: 100%;
+  }
+}
