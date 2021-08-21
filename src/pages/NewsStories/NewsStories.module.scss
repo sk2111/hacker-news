@@ -1,9 +1,16 @@
+@import 'stylesheets/colorTheme.scss';
+
 .storyContainer {
   height: 100%;
   width: 100%;
 }
+.topSection,
+.bottomSection {
+  padding: 15px;
+}
 .topSection {
-  height: 80px;
+  background-color: $clr-app-primary;
+  height: 50px;
   width: 100%;
 }
 .bottomSection {
