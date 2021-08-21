@@ -1,12 +1,10 @@
 //libs
 import { combineReducers } from 'redux';
 //reducers slice
-
+import appReducer from 'redux/app/appReducer';
 
 const rootReducer = combineReducers({
-    test: () => 'sa'
+  app: appReducer,
 });
-
-
 
 export default rootReducer;

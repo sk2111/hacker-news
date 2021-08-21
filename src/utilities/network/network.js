@@ -1,15 +1,10 @@
-import axios from 'axios';
+import { default as axiosPkg } from 'axios';
 
-let serverURL;
+export const TOP_STORIES = '/v0/topstories.json';
 
-if (process.env.NODE_ENV === 'development') {
-    serverURL = process.env.REACT_APP_SERVER_URL || console.error("Server port not initialised in .env");
-}
-else {
-    serverURL = '/'
-}
+const API_BASE_PATH = 'https://hacker-news.firebaseio.com';
 
-export const API = axios.create({
-    baseURL: serverURL,
-    headers: { 'Content-Type': 'application/json' }
+export const axios = axiosPkg.create({
+  baseURL: API_BASE_PATH,
+  headers: { 'Content-Type': 'application/json' },
 });

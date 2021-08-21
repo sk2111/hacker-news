@@ -3,13 +3,13 @@ import { useDispatch } from 'react-redux';
 //styles
 import styles from './NewsStories.module.scss';
 //actions
-import { fetchAllStories } from 'redux/rootAction';
+import { fetchAllStoriesStart } from 'redux/rootAction';
 
 const NewsStories = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchAllStories());
+    dispatch(fetchAllStoriesStart());
   }, [dispatch]);
 
   return (
