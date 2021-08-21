@@ -5,13 +5,14 @@
   box-shadow: 0 0 4px 1.8px rgba($clr-dark-background, 0.1);
   height: 300px;
   margin: 25px;
+  padding: 10px;
   transform: scale(1);
   transition: transform 0.1s;
   width: 300px;
 }
 .cardContainer:hover {
   box-shadow: 0 0 4px 3px rgba($clr-dark-background, 0.1);
-  transform: scale(1.025);
+  transform: scale(1.02);
 }
 .title {
   color: $clr-app-secondary-text;
@@ -24,6 +25,33 @@
 .createdDate,
 .user {
   align-items: center;
+  color: $clr-app-primary;
+  font-size: 1.6rem;
+  font-weight: bold;
   display: flex;
   flex-direction: row;
+  padding: 12px;
+}
+.boldTxt {
+  display: inline-block;
+  color: $clr-app-secondary-text;
+  font-weight: bold;
+  font-style: normal;
+  margin-right: 20px;
+  width: 100px;
+}
+.icon {
+  margin-right: 10px;
+  height: 25px;
+  width: 25px;
+}
+.link {
+  text-align: center;
+}
+.anchorLink {
+  border: 1px dashed $clr-app-primary;
+  color: $clr-app-primary;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 1.8rem;
 }
