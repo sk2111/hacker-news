@@ -1,0 +1,29 @@
+@import 'stylesheets/colorTheme.scss';
+
+.cardContainer {
+  border-radius: 5px;
+  box-shadow: 0 0 4px 1.8px rgba($clr-dark-background, 0.1);
+  height: 300px;
+  margin: 25px;
+  transform: scale(1);
+  transition: transform 0.1s;
+  width: 300px;
+}
+.cardContainer:hover {
+  box-shadow: 0 0 4px 3px rgba($clr-dark-background, 0.1);
+  transform: scale(1.025);
+}
+.title {
+  color: $clr-app-secondary-text;
+  font-size: 3.5em;
+  font-weight: 600;
+  margin-bottom: 10px;
+  border-bottom: 2px solid $clr-app-primary;
+}
+.rank,
+.createdDate,
+.user {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}

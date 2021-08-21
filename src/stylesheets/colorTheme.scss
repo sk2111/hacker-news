@@ -1,12 +1,15 @@
 //color palette
 
 $palette-light-gray: #f3f3f4;
-$palette-cap-blue: #53C1DE;
+$palette-cap-blue: #53c1de;
 $palette-cap-green: #00c578;
 $palette-pure-white: #ffffff;
-
+$palette-dark-gray: #2e3c40;
+$palette-pure-black:#000000;
 //color variables
-$clr-light-gray-background: $palette-light-gray;
+$clr-light-background: $palette-light-gray;
+$clr-dark-background: $palette-pure-black;
 $clr-app-primary: $palette-cap-green;
 $clr-app-primary-text: $palette-pure-white;
 $clr-app-secondary: $palette-cap-blue;
+$clr-app-secondary-text: $palette-dark-gray;
