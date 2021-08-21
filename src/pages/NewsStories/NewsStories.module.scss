@@ -1,0 +1,12 @@
+.storyContainer {
+  height: 100%;
+  width: 100%;
+}
+.topSection {
+  height: 80px;
+  width: 100%;
+}
+.bottomSection {
+  height: calc(100% - 80px);
+  width: 100%;
+}
