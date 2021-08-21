@@ -20,3 +20,24 @@ export const fetchAllStoriesFailure = (payload) => {
     payload,
   };
 };
+//fetch individual stiries based on id
+export const fetchStoryByIdStart = (payload) => {
+  return {
+    type: appActionTypes.FETCH_STORY_BY_ID_START,
+    payload,
+  };
+};
+
+export const fetchStoryByIdSuccess = (payload) => {
+  return {
+    type: appActionTypes.FETCH_STORY_BY_ID_SUCCESS,
+    payload,
+  };
+};
+
+export const fetchStoryByIdFailure = (payload) => {
+  return {
+    type: appActionTypes.FETCH_STORY_BY_ID_FAILURE,
+    payload,
+  };
+};

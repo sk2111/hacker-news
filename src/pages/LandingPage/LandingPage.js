@@ -22,6 +22,7 @@ const LandingPage = () => {
       </div>
       <div className={styles.rightSection}>
         <div className={styles.titleContainer}>
+          <HackerNewsLogo className={styles.rightLogo} />
           <h6 className={styles.title}>Welcome to Hacker News!</h6>
           <Button onClick={routeToStories}>Explore more !</Button>
         </div>

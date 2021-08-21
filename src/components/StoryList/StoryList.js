@@ -12,7 +12,9 @@ const StoryList = () => {
 
   const getStories = () => {
     if (storyIds.length) {
-      return storyIds.map((storyId) => <StoryItem key={storyId} />);
+      return storyIds.map((storyId) => (
+        <StoryItem key={storyId} id={storyId} />
+      ));
     }
     return <LoadingSpinner />;
   };
