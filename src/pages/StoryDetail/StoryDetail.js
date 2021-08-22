@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import styles from './StoryDetail.module.scss';
 //componets
 import Button from 'components/Button/Button';
+import Comment from 'components/Comment/Comment';
 //router
 import { STORIES_PATH } from 'utilities/router/routePath';
 //selectors
@@ -27,6 +28,11 @@ const StoryDetail = ({ match }) => {
       <div className={styles.topSection}>
         <h1 className={styles.title}>Hacker News</h1>
       </div>
+      <div className={styles.backBtnContainer}>
+        <Button className={styles.backBtn} onClick={handleGoBack}>
+          Go Back
+        </Button>
+      </div>
       <div className={styles.bottomSection}>
         <div className={styles.mainInfo}>
           <h1 className={styles.storyTitle}>{story.title}</h1>
@@ -36,11 +42,11 @@ const StoryDetail = ({ match }) => {
             <p>Posted By : {story.by}</p>
           </div>
         </div>
-      </div>
-      <div className={styles.backBtnContainer}>
-        <Button className={styles.backBtn} onClick={handleGoBack}>
-          Go Back
-        </Button>
+        <div className={styles.commentInfo}>
+          {story.kids.map((id) => (
+            <Comment key={id} id={id} />
+          ))}
+        </div>
       </div>
     </div>
   );

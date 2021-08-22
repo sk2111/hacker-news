@@ -44,9 +44,8 @@ export const fetchStoryByIdFailure = (payload) => {
   };
 };
 
-
 //search story
-export const searchStory = (payload)=>{
+export const searchStory = (payload) => {
   return {
     type: appActionTypes.SEARCH_STORY,
     payload,
@@ -54,9 +53,31 @@ export const searchStory = (payload)=>{
 };
 
 //sorting add
-export const sortStories = (payload)=>{
+export const sortStories = (payload) => {
   return {
     type: appActionTypes.SORT_STORIES,
     payload,
   };
-}
+};
+
+//comments
+export const fetchCommentsByIdStart = (payload) => {
+  return {
+    type: appActionTypes.FETCH_COMMENTS_BY_ID_START,
+    payload,
+  };
+};
+
+export const fetchCommentsByIdSuccess = (payload) => {
+  return {
+    type: appActionTypes.FETCH_COMMENTS_BY_ID_SUCCESS,
+    payload,
+  };
+};
+
+export const fetchCommentsByIdFailure = (payload) => {
+  return {
+    type: appActionTypes.FETCH_COMMENTS_BY_ID_FAILURE,
+    payload,
+  };
+};
