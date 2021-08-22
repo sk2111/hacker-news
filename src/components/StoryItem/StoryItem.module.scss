@@ -6,6 +6,8 @@
   height: 300px;
   margin: 25px;
   padding: 10px;
+  padding-top: 15px;
+  position: relative;
   transform: scale(1);
   transition: transform 0.1s;
   width: 300px;
@@ -27,8 +29,8 @@
   text-align: center;
 }
 .border {
-  border-bottom: 4px solid $clr-app-primary;
-  margin: 10px 0;
+  border-bottom: 2px solid $clr-app-primary;
+  margin: 5px 0;
 }
 .rank,
 .createdDate,
@@ -52,7 +54,7 @@
 }
 .link {
   text-align: center;
-  margin-top: 13px;
+  margin-top: 20px;
 }
 .anchorLink {
   border: 1px dashed $clr-app-primary;
@@ -65,4 +67,13 @@
   .infoText {
     text-transform: capitalize;
   }
+}
+.titleLink {
+  text-decoration: none;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+.expandLogo {
+  transform: rotate(45deg);
 }

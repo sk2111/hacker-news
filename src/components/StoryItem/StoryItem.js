@@ -13,6 +13,7 @@ import { STORIES_PATH } from 'utilities/router/routePath';
 import { ReactComponent as RankSvg } from 'assests/storyRank.svg';
 import { ReactComponent as TimeSvg } from 'assests/storyTime.svg';
 import { ReactComponent as UserSvg } from 'assests/storyUser.svg';
+import { ReactComponent as ExpandSvg } from 'assests/expand.svg';
 
 const StoryItem = ({ id }) => {
   const dispatch = useDispatch();
@@ -29,8 +30,9 @@ const StoryItem = ({ id }) => {
   return (
     <div className={styles.cardContainer}>
       <div className={styles.titleContainer}>
-        <Link to={`${STORIES_PATH}/${id}`}>
-          <h5 className={styles.title}>{story.title}</h5>
+        <h5 className={styles.title}>{story.title}</h5>
+        <Link to={`${STORIES_PATH}/${id}`} className={styles.titleLink}>
+          <ExpandSvg className={styles.expandLogo} />
         </Link>
       </div>
       <div className={styles.border}></div>
