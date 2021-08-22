@@ -8,7 +8,9 @@ import { LANDING_PATH } from 'utilities/router/routePath';
 import { ReactComponent as HackerEarthSvg } from 'assests/hackerEarth.svg';
 import { useDispatch } from 'react-redux';
 //actions
-import { searchStory } from 'redux/rootAction';
+import { searchStory, sortStories } from 'redux/rootAction';
+//constants
+import { sortOptionList } from 'utilities/constants/sortConstants';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -25,19 +27,36 @@ const Header = () => {
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
+  const handleSortChange = (e) => {
+    dispatch(sortStories(e.target.value));
+  };
 
   return (
     <div className={styles.container}>
-      <Link to={LANDING_PATH}>
-        <HackerEarthSvg className={styles.homeLogo} />
-      </Link>
-      <input
-        className={styles.searchStory}
-        type='text'
-        placeholder='search story'
-        value={searchTerm}
-        onChange={handleSearchChange}
-      />
+      <div className={styles.leftSec}>
+        <Link to={LANDING_PATH}>
+          <HackerEarthSvg className={styles.homeLogo} />
+        </Link>
+        <input
+          className={styles.searchStory}
+          type='text'
+          placeholder='search story'
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+      </div>
+      <div className={styles.titleCenter}>
+        <h1>Hacker News</h1>
+      </div>
+      <div className={styles.rightSec}>
+        <select className={styles.select} onChange={handleSortChange}>
+          {sortOptionList.map(({ name, value }) => (
+            <option key={value} value={value}>
+              {name}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 };

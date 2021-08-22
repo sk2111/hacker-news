@@ -1,8 +1,16 @@
+@import 'stylesheets/colorTheme.scss';
+
 .container {
   align-items: center;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   height: 100%;
   width: 100%;
+}
+.leftSec {
+  align-items: center;
+  display: flex;
 }
 .homeLogo {
   height: 30px;
@@ -18,4 +26,15 @@
 }
 .searchStory:focus {
   outline: none;
+}
+.select {
+  border-radius: 5px;
+  border: none;
+  height: 30px;
+  outline: none;
+  padding: 0 4px;
+}
+.titleCenter {
+  color: $clr-app-primary-text;
+  font-size: 1.2rem;
 }

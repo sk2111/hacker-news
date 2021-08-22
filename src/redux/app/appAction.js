@@ -1,5 +1,6 @@
 import { appActionTypes } from './appActionTypes';
 
+//fecth all stry ids
 export const fetchAllStoriesStart = (payload) => {
   return {
     type: appActionTypes.FETCH_ALL_STORIES_START,
@@ -20,6 +21,7 @@ export const fetchAllStoriesFailure = (payload) => {
     payload,
   };
 };
+
 //fetch individual stiries based on id
 export const fetchStoryByIdStart = (payload) => {
   return {
@@ -47,6 +49,14 @@ export const fetchStoryByIdFailure = (payload) => {
 export const searchStory = (payload)=>{
   return {
     type: appActionTypes.SEARCH_STORY,
+    payload,
+  };
+};
+
+//sorting add
+export const sortStories = (payload)=>{
+  return {
+    type: appActionTypes.SORT_STORIES,
     payload,
   };
 }
