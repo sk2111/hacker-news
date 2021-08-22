@@ -8,13 +8,16 @@ import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 import { selectAllStoryIds } from 'redux/rootSelector';
 
 const StoryList = () => {
-  const storyIds = useSelector(selectAllStoryIds);
+  const { storyIds, searchTerm } = useSelector(selectAllStoryIds);
 
   const getStories = () => {
     if (storyIds.length) {
       return storyIds.map((storyId) => (
         <StoryItem key={storyId} id={storyId} />
       ));
+    }
+    if (searchTerm.length && !storyIds.length) {
+      return <h1>No Stories Found!</h1>;
     }
     return <LoadingSpinner />;
   };

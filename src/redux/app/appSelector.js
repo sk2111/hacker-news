@@ -2,6 +2,14 @@ import { createSelector } from 'reselect';
 
 const selectAppSlice = (state) => state.app;
 
+const storyTitleSearch = ({ allIds, byId }, searchTerm) => {
+  if (!searchTerm.length) return allIds;
+  return allIds.filter((id) => {
+    const title = byId[id]?.title.toLowerCase() ?? '';
+    return title.includes(searchTerm.toLowerCase());
+  });
+};
+
 export const selectStories = createSelector(
   [selectAppSlice],
   (app) => app.stories
@@ -16,13 +24,8 @@ export const selectAllStoryIds = createSelector(
   [selectStories, selectSearchStory],
   (stories, searchTerm) => {
     //handle Search
-    const storyIds = stories.allIds;
-    const allStories = stories.byId;
-    const searchIds = storyIds.filter((id) => {
-      const title = allStories[id]?.title.toLowerCase() ?? '';
-      return title.includes(searchTerm.toLowerCase());
-    });
-    return searchIds;
+    const storyIds = storyTitleSearch(stories, searchTerm);
+    return { storyIds, searchTerm };
   }
 );
 
