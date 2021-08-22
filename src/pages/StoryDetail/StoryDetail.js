@@ -26,12 +26,12 @@ const StoryDetail = ({ match }) => {
   return (
     <div className={styles.container}>
       <div className={styles.topSection}>
-        <h1 className={styles.title}>Hacker News</h1>
-      </div>
-      <div className={styles.backBtnContainer}>
-        <Button className={styles.backBtn} onClick={handleGoBack}>
-          Go Back
-        </Button>
+        <div className={styles.goBack} onClick={handleGoBack}>
+          &#8592;
+        </div>
+        <h1 className={styles.title} onClick={handleGoBack}>
+          Hacker News
+        </h1>
       </div>
       <div className={styles.bottomSection}>
         <div className={styles.mainInfo}>
@@ -44,7 +44,7 @@ const StoryDetail = ({ match }) => {
         </div>
         <h5 className={styles.comments}>Comments</h5>
         <div className={styles.commentInfo}>
-          {story.kids.map((id) => (
+          {story.kids?.map((id) => (
             <Comment key={id} id={id} />
           ))}
         </div>

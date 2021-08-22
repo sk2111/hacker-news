@@ -1,14 +1,16 @@
+@import 'stylesheets/colorTheme.scss';
+
 .container {
   height: 100%;
+  margin-left: 10px;
   width: 100%;
 }
 .header {
   align-items: center;
   display: flex;
-  justify-content: center;
 }
 .body {
-  margin-left: 10px;
+  border-bottom: 2px solid $clr-app-primary;
 }
 .commentUser {
   margin: 10px 0;
@@ -20,6 +22,6 @@
 }
 .commentText {
   font-size: 1.35rem;
-  text-align: center;
+  text-align: left;
   line-height: 20px;
 }
