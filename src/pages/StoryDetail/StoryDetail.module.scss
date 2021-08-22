@@ -1,0 +1,33 @@
+@import 'stylesheets/colorTheme.scss';
+
+.container {
+  height: 100%;
+  width: 100%;
+}
+.topSection {
+  background-color: $clr-app-primary;
+  height: 50px;
+  padding: 15px;
+  width: 100%;
+}
+.title {
+  align-items: center;
+  color: $clr-app-primary-text;
+  display: flex;
+  height: 100%;
+  text-align: center;
+  justify-content: center;
+}
+.bottomSection {
+  align-items: center;
+  display: flex;
+  padding: 15px;
+  justify-content: center;
+}
+.storyTitle {
+  text-align: center;
+}
+.error {
+  text-align: center;
+  padding: 20px;
+}

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 //styles
@@ -6,6 +7,8 @@ import styles from './StoryItem.module.scss';
 import { fetchStoryByIdStart } from 'redux/rootAction';
 //selectors
 import { selectStoryById } from 'redux/rootSelector';
+//route path
+import { STORIES_PATH } from 'utilities/router/routePath';
 //assests
 import { ReactComponent as RankSvg } from 'assests/storyRank.svg';
 import { ReactComponent as TimeSvg } from 'assests/storyTime.svg';
@@ -26,7 +29,9 @@ const StoryItem = ({ id }) => {
   return (
     <div className={styles.cardContainer}>
       <div className={styles.titleContainer}>
-        <h5 className={styles.title}>{story.title}</h5>
+        <Link to={`${STORIES_PATH}/${id}`}>
+          <h5 className={styles.title}>{story.title}</h5>
+        </Link>
       </div>
       <div className={styles.border}></div>
       <div className={styles.rank}>
