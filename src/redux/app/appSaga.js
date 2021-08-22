@@ -11,11 +11,14 @@ import { appActionTypes } from './appActionTypes';
 import * as appActions from './appAction';
 //network
 import { axios, getStoryIdPath, TOP_STORIES } from 'utilities/network/network';
+//helpers
+import { getFormattedDate } from 'utilities/helpers/helpers';
 
 //fetch individual story by id
 function* fetchStoryById({ payload: { id } }) {
   try {
     const { data: story } = yield axios.get(getStoryIdPath(id));
+    story.date = yield call(getFormattedDate, story.time);
     yield put(appActions.fetchStoryByIdSuccess(story));
   } catch (e) {
     console.log(e.message);

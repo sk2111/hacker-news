@@ -35,7 +35,7 @@ const StoryItem = ({ id }) => {
       </div>
       <div className={styles.createdDate}>
         <TimeSvg className={styles.icon} />
-        <p className={styles.infoText}>{story.time}</p>
+        <p className={styles.infoText}>{story.date}</p>
       </div>
       <div className={styles.user}>
         <UserSvg className={styles.icon} />
