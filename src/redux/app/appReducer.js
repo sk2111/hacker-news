@@ -8,6 +8,7 @@ const INITIAL_STATE = {
     byId: {},
     allIds: [],
   },
+  error: null,
 };
 
 const appReducer = produce((draft, action) => {
@@ -15,8 +16,12 @@ const appReducer = produce((draft, action) => {
     case appActionTypes.FETCH_ALL_STORIES_SUCCESS:
       draft.stories.allIds = action.payload;
       break;
-    case appActionTypes.ADD_NEW_STORY:
+    case appActionTypes.FETCH_STORY_BY_ID_SUCCESS:
       draft.stories.byId[action.payload.id] = action.payload;
+      break;
+    case appActionTypes.FETCH_ALL_STORIES_FAILURE:
+    case appActionTypes.FETCH_STORY_BY_ID_FAILURE:
+      draft.stories.error = action.payload.error;
       break;
     default:
       break;

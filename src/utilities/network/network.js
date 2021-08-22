@@ -1,6 +1,7 @@
 import { default as axiosPkg } from 'axios';
 
 export const TOP_STORIES = '/v0/topstories.json';
+export const getStoryIdPath = (id) => `/v0/item/${id}.json`;
 
 const API_BASE_PATH = 'https://hacker-news.firebaseio.com';
 

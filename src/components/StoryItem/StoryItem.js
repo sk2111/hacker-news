@@ -25,32 +25,26 @@ const StoryItem = ({ id }) => {
 
   return (
     <div className={styles.cardContainer}>
-      <h5 className={styles.title}>{story.title}</h5>
+      <div className={styles.titleContainer}>
+        <h5 className={styles.title}>{story.title}</h5>
+      </div>
+      <div className={styles.border}></div>
       <div className={styles.rank}>
         <RankSvg className={styles.icon} />
-        <p className={styles.infoText}>
-          <span className={styles.boldTxt}>Score</span>
-          {story.rank}
-        </p>
+        <p className={styles.infoText}>{story.score}</p>
       </div>
       <div className={styles.createdDate}>
         <TimeSvg className={styles.icon} />
-        <p className={styles.infoText}>
-          <span className={styles.boldTxt}>Posted At</span>
-          {story.date}
-        </p>
+        <p className={styles.infoText}>{story.time}</p>
       </div>
       <div className={styles.user}>
         <UserSvg className={styles.icon} />
-        <p className={styles.infoText}>
-          <span className={styles.boldTxt}>Post Creater</span>
-          {story.user}
-        </p>
+        <p className={styles.infoText}>{story.by}</p>
       </div>
       <div className={styles.link}>
         <a
           className={styles.anchorLink}
-          href='https://www.google.com'
+          href={story.url}
           target='_blank'
           rel='noreferrer'
         >

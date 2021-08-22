@@ -14,12 +14,21 @@
   box-shadow: 0 0 4px 3px rgba($clr-dark-background, 0.1);
   transform: scale(1.02);
 }
+.titleContainer {
+  height: 55px;
+  overflow: hidden;
+  padding: 5px;
+}
 .title {
   color: $clr-app-secondary-text;
-  font-size: 3.5em;
+  font-size: 2em;
   font-weight: 600;
   margin-bottom: 10px;
-  border-bottom: 2px solid $clr-app-primary;
+  text-align: center;
+}
+.border {
+  border-bottom: 4px solid $clr-app-primary;
+  margin: 10px 0;
 }
 .rank,
 .createdDate,
@@ -30,15 +39,11 @@
   font-weight: bold;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   padding: 12px;
 }
-.boldTxt {
-  display: inline-block;
-  color: $clr-app-secondary-text;
-  font-weight: bold;
-  font-style: normal;
-  margin-right: 20px;
-  width: 100px;
+.infoText {
+  width: 210px;
 }
 .icon {
   margin-right: 10px;
@@ -47,6 +52,7 @@
 }
 .link {
   text-align: center;
+  margin-top: 13px;
 }
 .anchorLink {
   border: 1px dashed $clr-app-primary;

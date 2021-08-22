@@ -10,8 +10,24 @@ import {
 import { appActionTypes } from './appActionTypes';
 import * as appActions from './appAction';
 //network
-import { axios, TOP_STORIES } from 'utilities/network/network';
+import { axios, getStoryIdPath, TOP_STORIES } from 'utilities/network/network';
 
+//fetch individual story by id
+function* fetchStoryById({ payload: { id } }) {
+  try {
+    const { data: story } = yield axios.get(getStoryIdPath(id));
+    yield put(appActions.fetchStoryByIdSuccess(story));
+  } catch (e) {
+    console.log(e.message);
+    yield put(appActions.fetchAllStoriesFailure({ error: e.message }));
+  }
+}
+
+function* onFetchStoryByIdStart() {
+  yield takeEvery(appActionTypes.FETCH_STORY_BY_ID_START, fetchStoryById);
+}
+
+//fetch all stories ids
 function* fetchAllStories() {
   try {
     const { data: storyIds } = yield axios.get(TOP_STORIES);
@@ -28,5 +44,5 @@ function* onFetchAllStoriesStart() {
 
 //export all sagas
 export function* appSagas() {
-  yield all([call(onFetchAllStoriesStart)]);
+  yield all([call(onFetchAllStoriesStart), call(onFetchStoryByIdStart)]);
 }
