@@ -54,12 +54,16 @@ export const sortOptionList = [
 
 export const sortByWrapper = (value, lookup) => {
   const prop = sortPropMap[value];
-  switch (sortTypeMap[value]) {
-    case NUM_ASC:
-      return (a, b) => lookup[a][prop] - lookup[b][prop];
-    case NUM_DESC:
-      return (a, b) => lookup[b][prop] - lookup[a][prop];
-    default:
-      return () => {};
+  if (sortTypeMap[value] === NUM_ASC) {
+    return (a, b) => {
+      if (lookup[a] && lookup[b]) {
+        return lookup[a][prop] - lookup[b][prop];
+      }
+    };
   }
+  return (a, b) => {
+    if (lookup[a] && lookup[b]) {
+      return lookup[b][prop] - lookup[a][prop];
+    }
+  };
 };
