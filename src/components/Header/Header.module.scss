@@ -13,5 +13,9 @@
   border-radius: 5px;
   border: none;
   height: 30px;
+  outline: none;
   padding: 5px;
+}
+.searchStory:focus {
+  outline: none;
 }

@@ -1,5 +1,5 @@
 //libs
-import produce, { original } from 'immer';
+import produce from 'immer';
 //action types
 import { appActionTypes } from './appActionTypes';
 
@@ -8,6 +8,7 @@ const INITIAL_STATE = {
     byId: {},
     allIds: [],
   },
+  searchStory: '',
   error: null,
 };
 
@@ -18,6 +19,9 @@ const appReducer = produce((draft, action) => {
       break;
     case appActionTypes.FETCH_STORY_BY_ID_SUCCESS:
       draft.stories.byId[action.payload.id] = action.payload;
+      break;
+    case appActionTypes.SEARCH_STORY:
+      draft.searchStory = action.payload;
       break;
     case appActionTypes.FETCH_ALL_STORIES_FAILURE:
     case appActionTypes.FETCH_STORY_BY_ID_FAILURE:

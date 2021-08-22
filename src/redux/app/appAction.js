@@ -41,3 +41,12 @@ export const fetchStoryByIdFailure = (payload) => {
     payload,
   };
 };
+
+
+//search story
+export const searchStory = (payload)=>{
+  return {
+    type: appActionTypes.SEARCH_STORY,
+    payload,
+  };
+}
