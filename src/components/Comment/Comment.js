@@ -5,11 +5,11 @@ import styles from './Comment.module.scss';
 //actions
 import { fetchCommentsByIdStart } from 'redux/rootAction';
 //selectors
+import { selectCommentById } from 'redux/rootSelector';
 
 const Comment = ({ id }) => {
   const dispatch = useDispatch();
-  // const story = useSelector((state) => selectStoryById(state, id));
-  const comment = null;
+  const comment = useSelector((state) => selectCommentById(state, id));
 
   useEffect(() => {
     if (!comment) {
@@ -22,11 +22,11 @@ const Comment = ({ id }) => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h3>{comment.by}</h3>
-        <p>{comment.date}</p>
+        <h3 className={styles.commentUser}>{comment.by}</h3>
+        <p className={styles.commentData}>{comment.date}</p>
       </div>
       <div className={styles.body}>
-        <p>{comment.text}</p>
+        <p className={styles.commentText}>{comment.text}</p>
       </div>
     </div>
   );

@@ -9,6 +9,7 @@ const INITIAL_STATE = {
     allIds: [],
     allFetched: false,
   },
+  comments: {},
   searchBy: '',
   sortBy: '',
   error: null,
@@ -24,6 +25,9 @@ const appReducer = produce((draft, action) => {
       draft.stories.allFetched =
         draft.stories.allFetched || action.payload.allFetched;
       break;
+    case appActionTypes.FETCH_COMMENTS_BY_ID_SUCCESS:
+      draft.comments[action.payload.id] = action.payload;
+      break;
     case appActionTypes.SEARCH_STORY:
       draft.searchBy = action.payload;
       break;
@@ -32,6 +36,7 @@ const appReducer = produce((draft, action) => {
       break;
     case appActionTypes.FETCH_ALL_STORIES_FAILURE:
     case appActionTypes.FETCH_STORY_BY_ID_FAILURE:
+    case appActionTypes.FETCH_COMMENTS_BY_ID_FAILURE:
       draft.stories.error = action.payload.error;
       break;
     default:

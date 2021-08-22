@@ -42,6 +42,7 @@ const StoryDetail = ({ match }) => {
             <p>Posted By : {story.by}</p>
           </div>
         </div>
+        <h5 className={styles.comments}>Comments</h5>
         <div className={styles.commentInfo}>
           {story.kids.map((id) => (
             <Comment key={id} id={id} />

@@ -21,6 +21,7 @@ export const selectStories = createSelector(
   [selectAppSlice],
   (app) => app.stories
 );
+
 export const selectStoriesAllFetched = createSelector(
   [selectAppSlice],
   (app) => app.stories.allFetched
@@ -51,5 +52,18 @@ export const selectStoryById = createSelector(
   (_, id) => id,
   (stories, id) => {
     return stories.byId[id];
+  }
+);
+
+export const selectComments = createSelector(
+  [selectAppSlice],
+  (app) => app.comments
+);
+
+export const selectCommentById = createSelector(
+  selectComments,
+  (_, id) => id,
+  (comments, id) => {
+    return comments[id];
   }
 );
