@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 //styles
 import styles from './NewsStories.module.scss';
+//components
+import Header from 'components/Header/Header';
+import StoryList from 'components/StoryList/StoryList';
 //actions
 import { fetchAllStoriesStart } from 'redux/rootAction';
-import StoryList from 'components/StoryList/StoryList';
 
 const NewsStories = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const NewsStories = () => {
   return (
     <div className={styles.storyContainer}>
       <div className={styles.topSection}>
-        <Link to='/'>Home</Link>
+        <Header />
       </div>
       <div className={styles.bottomSection}>
         <StoryList />
