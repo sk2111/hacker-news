@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 //styles
 import styles from './StoryDetail.module.scss';
 //componets
-import Button from 'components/Button/Button';
 import Comment from 'components/Comment/Comment';
 //router
 import { STORIES_PATH } from 'utilities/router/routePath';

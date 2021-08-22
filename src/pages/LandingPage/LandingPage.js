@@ -2,9 +2,10 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 //styles
 import styles from './LandingPage.module.scss';
+//components
+import Button from 'components/Button/Button';
 //assests
 import { ReactComponent as HackerNewsLogo } from 'assests/hackerEarth.svg';
-import Button from 'components/Button/Button';
 //route path
 import { STORIES_PATH } from 'utilities/router/routePath';
 
