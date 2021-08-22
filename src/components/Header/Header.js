@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 //actions
 import { searchStory, sortStories } from 'redux/rootAction';
 //constants
-import { sortOptionList } from 'utilities/constants/sortConstants';
+import { sortOptionList } from 'utilities/configs/storySort';
 
 const Header = () => {
   const dispatch = useDispatch();

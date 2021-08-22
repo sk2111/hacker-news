@@ -1,13 +1,20 @@
 import { createSelector } from 'reselect';
+import { sortByWrapper } from 'utilities/configs/storySort';
 
 const selectAppSlice = (state) => state.app;
 
-const storyTitleSearch = ({ allIds, byId }, searchTerm) => {
-  if (!searchTerm.length) return allIds;
-  return allIds.filter((id) => {
+const searchStoryByTitle = (storyIds, { byId }, searchTerm) => {
+  if (!searchTerm.length) return storyIds;
+  return storyIds.filter((id) => {
     const title = byId[id]?.title.toLowerCase() ?? '';
     return title.includes(searchTerm.toLowerCase());
   });
+};
+
+const sortStoryIds = (sortBy, { allIds, byId }) => {
+  if (!sortBy.length) return allIds;
+  const sortFunc = sortByWrapper(sortBy, byId);
+  return [...allIds].sort(sortFunc);
 };
 
 export const selectStories = createSelector(
@@ -17,14 +24,20 @@ export const selectStories = createSelector(
 
 export const selectSearchStory = createSelector(
   [selectAppSlice],
-  (app) => app.searchStory
+  (app) => app.searchBy
+);
+
+export const selectSortStory = createSelector(
+  [selectAppSlice],
+  (app) => app.sortBy
 );
 
 export const selectAllStoryIds = createSelector(
-  [selectStories, selectSearchStory],
-  (stories, searchTerm) => {
-    //handle Search
-    const storyIds = storyTitleSearch(stories, searchTerm);
+  [selectStories, selectSearchStory, selectSortStory],
+  (stories, searchTerm, sortBy) => {
+    const sortIds = sortStoryIds(sortBy, stories);
+    const searchIds = searchStoryByTitle(sortIds, stories, searchTerm);
+    const storyIds = searchIds ?? [];
     return { storyIds, searchTerm };
   }
 );
