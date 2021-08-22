@@ -7,6 +7,7 @@ const INITIAL_STATE = {
   stories: {
     byId: {},
     allIds: [],
+    allFetched: false,
   },
   searchBy: '',
   sortBy: '',
@@ -19,7 +20,9 @@ const appReducer = produce((draft, action) => {
       draft.stories.allIds = action.payload;
       break;
     case appActionTypes.FETCH_STORY_BY_ID_SUCCESS:
-      draft.stories.byId[action.payload.id] = action.payload;
+      draft.stories.byId[action.payload.story.id] = action.payload.story;
+      draft.stories.allFetched =
+        draft.stories.allFetched || action.payload.allFetched;
       break;
     case appActionTypes.SEARCH_STORY:
       draft.searchBy = action.payload;

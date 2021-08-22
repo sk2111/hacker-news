@@ -21,6 +21,10 @@ export const selectStories = createSelector(
   [selectAppSlice],
   (app) => app.stories
 );
+export const selectStoriesAllFetched = createSelector(
+  [selectAppSlice],
+  (app) => app.stories.allFetched
+);
 
 export const selectSearchStory = createSelector(
   [selectAppSlice],
